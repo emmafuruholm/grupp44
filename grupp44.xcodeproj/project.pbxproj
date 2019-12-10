@@ -7,10 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5600589239FE2D90058847E /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5600587239FE2A70058847E /* SDL2.framework */; };
+		C560058A239FE2D90058847E /* SDL2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C5600587239FE2A70058847E /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C5AF4F95239FA88A00FB1C42 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5AF4F94239FA88A00FB1C42 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		C560058B239FE2D90058847E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C560058A239FE2D90058847E /* SDL2.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C5AF4F8F239FA88A00FB1C42 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -23,6 +36,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C5600587239FE2A70058847E /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		C5AF4F91239FA88A00FB1C42 /* grupp44 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = grupp44; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5AF4F94239FA88A00FB1C42 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -32,17 +46,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5600589239FE2D90058847E /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C5600586239FE2A70058847E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C5600587239FE2A70058847E /* SDL2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C5AF4F88239FA88A00FB1C42 = {
 			isa = PBXGroup;
 			children = (
 				C5AF4F93239FA88A00FB1C42 /* grupp44 */,
 				C5AF4F92239FA88A00FB1C42 /* Products */,
+				C5600586239FE2A70058847E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +96,7 @@
 				C5AF4F8D239FA88A00FB1C42 /* Sources */,
 				C5AF4F8E239FA88A00FB1C42 /* Frameworks */,
 				C5AF4F8F239FA88A00FB1C42 /* CopyFiles */,
+				C560058B239FE2D90058847E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -241,6 +266,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YT6PUD56K3;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				"HEADER_SEARCH_PATHS[arch=*]" = /Library/Frameworks/SDL2.framework/Headers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -251,6 +281,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YT6PUD56K3;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				"HEADER_SEARCH_PATHS[arch=*]" = /Library/Frameworks/SDL2.framework/Headers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
