@@ -1,8 +1,11 @@
 
 #include <iostream>
+using namespace std;
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    std::cout << "Test\n Erik";
+    cout << "Test\n Erik";
+    cout << "Test Emma";
+
     return 0;
 }
