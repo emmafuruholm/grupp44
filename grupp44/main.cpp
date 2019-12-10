@@ -5,7 +5,7 @@ using namespace std;
 int main(int argc, const char * argv[]) {
     // insert code here...
     cout << "Test\n Erik";
-    cout << "Test Emma";
+    cout << "Test Emma hej";
 
     return 0;
 }
