@@ -1,11 +1,14 @@
 
 #include <iostream>
+#include <SDL.h>
+#include "Session.hpp"
+
+
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    cout << "Test\n Erik hej hej";
-    cout << "Test Emma hej  hej";
+    game::Session ses;
+    ses.run();
 
     return 0;
 }
