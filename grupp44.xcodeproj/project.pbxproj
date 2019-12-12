@@ -12,6 +12,7 @@
 		036867C423A275A200640267 /* System.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036867C223A275A200640267 /* System.cpp */; };
 		C5600589239FE2D90058847E /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5600587239FE2A70058847E /* SDL2.framework */; };
 		C560058A239FE2D90058847E /* SDL2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C5600587239FE2A70058847E /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C56005A123A285960058847E /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C560059F23A285950058847E /* Player.cpp */; };
 		C5AF4F95239FA88A00FB1C42 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5AF4F94239FA88A00FB1C42 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,8 @@
 		036867C223A275A200640267 /* System.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = System.cpp; sourceTree = "<group>"; };
 		036867C323A275A200640267 /* System.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = System.hpp; sourceTree = "<group>"; };
 		C5600587239FE2A70058847E /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		C560059F23A285950058847E /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		C56005A023A285960058847E /* Player.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
 		C5AF4F91239FA88A00FB1C42 /* grupp44 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = grupp44; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5AF4F94239FA88A00FB1C42 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,6 +71,7 @@
 				036867BD23A2627A00640267 /* Session.hpp */,
 				036867C023A26B7600640267 /* Component.hpp */,
 				036867C323A275A200640267 /* System.hpp */,
+				C56005A023A285960058847E /* Player.hpp */,
 			);
 			path = "Header files";
 			sourceTree = "<group>";
@@ -103,6 +107,7 @@
 			children = (
 				036867BC23A2627A00640267 /* Session.cpp */,
 				036867C223A275A200640267 /* System.cpp */,
+				C560059F23A285950058847E /* Player.cpp */,
 				C5AF4F94239FA88A00FB1C42 /* main.cpp */,
 				036867BF23A26B7600640267 /* Component.cpp */,
 			);
@@ -171,6 +176,7 @@
 				036867BE23A2627A00640267 /* Session.cpp in Sources */,
 				036867C123A26B7600640267 /* Component.cpp in Sources */,
 				C5AF4F95239FA88A00FB1C42 /* main.cpp in Sources */,
+				C56005A123A285960058847E /* Player.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
