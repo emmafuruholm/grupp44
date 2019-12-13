@@ -10,6 +10,9 @@
 		036867BE23A2627A00640267 /* Session.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036867BC23A2627A00640267 /* Session.cpp */; };
 		036867C123A26B7600640267 /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036867BF23A26B7600640267 /* Component.cpp */; };
 		036867C423A275A200640267 /* System.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036867C223A275A200640267 /* System.cpp */; };
+		2296B6F423A3B66800680517 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2296B6F223A3B66800680517 /* Enemy.cpp */; };
+		2296B6F723A3CA2200680517 /* Enemies.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2296B6F523A3CA2200680517 /* Enemies.cpp */; };
+		2296B6FA23A3D5A700680517 /* Element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2296B6F823A3D5A700680517 /* Element.cpp */; };
 		C5600589239FE2D90058847E /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5600587239FE2A70058847E /* SDL2.framework */; };
 		C560058A239FE2D90058847E /* SDL2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C5600587239FE2A70058847E /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C56005A123A285960058847E /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C560059F23A285950058847E /* Player.cpp */; };
@@ -46,6 +49,12 @@
 		036867C023A26B7600640267 /* Component.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Component.hpp; sourceTree = "<group>"; };
 		036867C223A275A200640267 /* System.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = System.cpp; sourceTree = "<group>"; };
 		036867C323A275A200640267 /* System.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = System.hpp; sourceTree = "<group>"; };
+		2296B6F223A3B66800680517 /* Enemy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
+		2296B6F323A3B66800680517 /* Enemy.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Enemy.hpp; sourceTree = "<group>"; };
+		2296B6F523A3CA2200680517 /* Enemies.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Enemies.cpp; sourceTree = "<group>"; };
+		2296B6F623A3CA2200680517 /* Enemies.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Enemies.hpp; sourceTree = "<group>"; };
+		2296B6F823A3D5A700680517 /* Element.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Element.cpp; sourceTree = "<group>"; };
+		2296B6F923A3D5A700680517 /* Element.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Element.hpp; sourceTree = "<group>"; };
 		C5600587239FE2A70058847E /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		C560059F23A285950058847E /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		C56005A023A285960058847E /* Player.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
@@ -72,6 +81,9 @@
 				036867C023A26B7600640267 /* Component.hpp */,
 				036867C323A275A200640267 /* System.hpp */,
 				C56005A023A285960058847E /* Player.hpp */,
+				2296B6F323A3B66800680517 /* Enemy.hpp */,
+				2296B6F623A3CA2200680517 /* Enemies.hpp */,
+				2296B6F923A3D5A700680517 /* Element.hpp */,
 			);
 			path = "Header files";
 			sourceTree = "<group>";
@@ -105,6 +117,9 @@
 		C5AF4F93239FA88A00FB1C42 /* Game engine */ = {
 			isa = PBXGroup;
 			children = (
+				2296B6F223A3B66800680517 /* Enemy.cpp */,
+				2296B6F823A3D5A700680517 /* Element.cpp */,
+				2296B6F523A3CA2200680517 /* Enemies.cpp */,
 				036867BC23A2627A00640267 /* Session.cpp */,
 				036867C223A275A200640267 /* System.cpp */,
 				C560059F23A285950058847E /* Player.cpp */,
@@ -174,8 +189,11 @@
 			files = (
 				036867C423A275A200640267 /* System.cpp in Sources */,
 				036867BE23A2627A00640267 /* Session.cpp in Sources */,
+				2296B6F723A3CA2200680517 /* Enemies.cpp in Sources */,
+				2296B6F423A3B66800680517 /* Enemy.cpp in Sources */,
 				036867C123A26B7600640267 /* Component.cpp in Sources */,
 				C5AF4F95239FA88A00FB1C42 /* main.cpp in Sources */,
+				2296B6FA23A3D5A700680517 /* Element.cpp in Sources */,
 				C56005A123A285960058847E /* Player.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,7 +314,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YT6PUD56K3;
+				DEVELOPMENT_TEAM = 6A5M8SZ7A7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -311,7 +329,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YT6PUD56K3;
+				DEVELOPMENT_TEAM = 6A5M8SZ7A7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
