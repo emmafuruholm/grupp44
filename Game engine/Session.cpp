@@ -11,8 +11,7 @@
 #include "Element.hpp"
 #include "System.hpp"
 
-#define FPS 60
-#define FRAME_INTERVAL 1000 / FPS
+
 
 namespace game{
 

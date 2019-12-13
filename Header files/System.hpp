@@ -11,6 +11,8 @@
 
 #include <SDL.h>
 // #include <SDL_ttf.h>
+#define FPS 60
+#define FRAME_INTERVAL 1000 / FPS
 
 namespace game {
     

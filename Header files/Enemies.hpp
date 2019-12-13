@@ -32,6 +32,9 @@ private:
     Enemies(int rows, int columns);
     std::vector<std::vector<Enemy*>> enemies;
     bool isMovingToRight = true;
+    int frameCount = 0;
+    int speed = 3; // Higher number is higher speed. 1 == 1 move per second.
+    
 };
 }
 

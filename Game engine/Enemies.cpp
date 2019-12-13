@@ -60,12 +60,16 @@ void Enemies::draw() const{
 }
 
 void Enemies::onFrameUpdate(){
-    // Check if enemies has reach end or start of window
-    if(isEnemiesAtWindowEnd() || isEnemiesAtWindowStart()){
-        isMovingToRight = !isMovingToRight; // Switch direction
-        moveEnemiesDown();
+    if(++frameCount >= FPS / speed){
+        frameCount = 0;
+        // Check if enemies has reach end or start of window
+        if(isEnemiesAtWindowEnd() || isEnemiesAtWindowStart()){
+            isMovingToRight = !isMovingToRight; // Switch direction
+            moveEnemiesDown();
+            speed += 3;
+        }
+        moveEnemiesSideways();
     }
-    moveEnemiesSideways();
 }
 
 bool Enemies::isEnemiesAtWindowEnd(){
@@ -96,9 +100,9 @@ void Enemies::moveEnemiesSideways(){
         for(Enemy* e : enemiesRow){
             SDL_Rect currentRect = e->getRect();
             if(isMovingToRight){
-                e->setRectPosition(++currentRect.x, currentRect.y);
+                e->setRectPosition(currentRect.x += 5, currentRect.y);
             } else{
-                e->setRectPosition(--currentRect.x, currentRect.y);
+                e->setRectPosition(currentRect.x -= 5, currentRect.y);
             }
         }
     }
@@ -108,7 +112,7 @@ void Enemies::moveEnemiesDown(){
     for(std::vector<Enemy*> enemiesRow: enemies){
         for(Enemy* e : enemiesRow){
             SDL_Rect currentRect = e->getRect();
-            e->setRectPosition(currentRect.x, currentRect.y + e->getRect().h);
+            e->setRectPosition(currentRect.x, currentRect.y + e->getRect().h / 2);
         }
     }
 }
