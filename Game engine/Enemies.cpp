@@ -13,40 +13,49 @@
 
 namespace game{
 
-Enemies::Enemies(int amount){
-    addEnemy(amount);
+
+Enemies::Enemies(int rows, int columns){
+    SDL_Surface* s = SDL_LoadBMP("/Users/tim/Desktop/enemy1.bmp");
     
+    for (int row = 0; row < rows; row++) {
+        std::vector<Enemy*> currentColumn;
+        int nextY = s->h * row;
+        
+        for (int column = 0; column < columns; column++) {
+            int nextX = s->w * column;
+            Enemy* e = Enemy::getInstance(nextX,nextY,s);
+            currentColumn.push_back(e);
+        }
+        
+        enemies.push_back(currentColumn);
+        
+    }
 }
 
-Enemies* Enemies::getInstance(int amount){
-    return new Enemies(amount);
+Enemies* Enemies::getInstance(int rows, int columns){
+    return new Enemies(rows, columns);
 }
+
 
 Enemies::~Enemies() {
     
 }
 
-void Enemies::addEnemy(int amount){
-    SDL_Surface* s = SDL_LoadBMP("/Users/tim/Desktop/enemy1.bmp");
-    
-    for(int i = 0; i<amount; i++){
-        int nextX = 0;
-        if(enemies.size() > 0){
-            nextX = enemies.back()->getRect().x + enemies.back()->getRect().w;
-        }
-        Enemy* e = Enemy::getInstance(nextX,0,s);
-        enemies.push_back(e);
-    }
-    
-}
-
-std::vector<Enemy*> Enemies::getEnemies(){
+std::vector<std::vector<Enemy*>> Enemies::getEnemies(){
     return enemies;
 }
 
+void Enemies::removeEnemy(int row, int column){
+    Enemy* temp = enemies[row][column];
+    enemies[row].erase(enemies[row].begin() + column);
+    delete temp;
+}
+
 void Enemies::draw() const{
-    for(Enemy* e : enemies){
-        e->draw();
+    for(std::vector<Enemy*> enemiesColumn: enemies){
+        for(Enemy* e : enemiesColumn){
+            e->draw();
+        }
     }
 }
 
@@ -60,28 +69,47 @@ void Enemies::onFrameUpdate(){
 }
 
 bool Enemies::isEnemiesAtWindowEnd(){
-    return isMovingToRight && enemies.back()->getRect().x + enemies.back()->getRect().w >= sys.getWindowWidht();
+    for(std::vector<Enemy*> enemiesRow: enemies){
+        Enemy* lastEnemy = enemiesRow.back();
+        if(isMovingToRight && lastEnemy->getRect().x + lastEnemy->getRect().w >= sys.getWindowWidht()){
+            return true;
+        }
+    }
+    return false;
+    
+    // return isMovingToRight && enemies.back()->getRect().x + enemies.back()->getRect().w >= sys.getWindowWidht();
 }
 
 bool Enemies::isEnemiesAtWindowStart(){
-    return !isMovingToRight && enemies.front()->getRect().x <= 0;
+    for(std::vector<Enemy*> enemiesRow: enemies){
+        Enemy* firstEnemy = enemiesRow.front();
+        if(! isMovingToRight && firstEnemy->getRect().x <= 0){
+            return true;
+        }
+    }
+    return false;
+    // return !isMovingToRight && enemies.front()->getRect().x <= 0;
 }
 
 void Enemies::moveEnemiesSideways(){
-    for(Enemy* e : enemies){
-        SDL_Rect currentRect = e->getRect();
-        if(isMovingToRight){
-            e->setRectPosition(++currentRect.x, currentRect.y);
-        } else{
-            e->setRectPosition(--currentRect.x, currentRect.y);
+    for(std::vector<Enemy*> enemiesRow: enemies){
+        for(Enemy* e : enemiesRow){
+            SDL_Rect currentRect = e->getRect();
+            if(isMovingToRight){
+                e->setRectPosition(++currentRect.x, currentRect.y);
+            } else{
+                e->setRectPosition(--currentRect.x, currentRect.y);
+            }
         }
     }
 }
 
 void Enemies::moveEnemiesDown(){
-    for(Enemy* e : enemies){
-        SDL_Rect currentRect = e->getRect();
-        e->setRectPosition(currentRect.x, currentRect.y + e->getRect().h);
+    for(std::vector<Enemy*> enemiesRow: enemies){
+        for(Enemy* e : enemiesRow){
+            SDL_Rect currentRect = e->getRect();
+            e->setRectPosition(currentRect.x, currentRect.y + e->getRect().h);
+        }
     }
 }
 

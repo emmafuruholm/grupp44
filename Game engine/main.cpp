@@ -13,7 +13,7 @@ using namespace game;
 int main(int argc, const char * argv[]) {
     
     
-    Enemies* enemies = Enemies::getInstance(5);
+    Enemies* enemies = Enemies::getInstance(3,4);
     Session ses;
     ses.add(enemies);
     

@@ -17,20 +17,20 @@ namespace game {
 class Enemies: public Element{
     
 public:
-    static Enemies* getInstance(int amount);
+    static Enemies* getInstance(int rows, int columns);
     ~Enemies();
     void draw() const;
     void onFrameUpdate();
-    void addEnemy(int amount);
-    std::vector<Enemy*> getEnemies();
+    std::vector<std::vector<Enemy*>> getEnemies();
+    void removeEnemy(int row, int column);
     bool isEnemiesAtWindowEnd();
     bool isEnemiesAtWindowStart();
     void moveEnemiesDown();
     void moveEnemiesSideways();
     
 private:
-    Enemies(int amount);
-    std::vector<Enemy*> enemies;
+    Enemies(int rows, int columns);
+    std::vector<std::vector<Enemy*>> enemies;
     bool isMovingToRight = true;
 };
 }
