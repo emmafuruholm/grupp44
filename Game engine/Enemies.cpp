@@ -11,6 +11,8 @@
 #include "System.hpp"
 #include <SDL.h>
 
+#include <iostream>
+
 namespace game{
 
 
@@ -40,6 +42,19 @@ Enemies* Enemies::getInstance(int rows, int columns){
 Enemies::~Enemies() {
     
 }
+
+Component* Enemies::checkCollision(std::vector<Component*>& components){
+    for(std::vector<Enemy*> enemiesColumn: enemies){
+        for(Enemy* e : enemiesColumn){
+            Component* collidedWith = e->checkCollision(components);
+            if(collidedWith != NULL){
+               std:: cout<<"träff"<<std::endl;
+                return collidedWith;
+            }
+        }
+    }
+    return NULL;
+};
 
 std::vector<std::vector<Enemy*>> Enemies::getEnemies(){
     return enemies;

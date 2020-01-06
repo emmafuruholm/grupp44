@@ -11,12 +11,16 @@
 #include "Element.hpp"
 #include "System.hpp"
 
-
+using namespace std;
 
 namespace game{
 
-void Session::add(Element* c){
-    elements.push_back(c);
+void Session::add(Component* c){
+    components.push_back(c);
+}
+
+void Session::remove(Component* c){
+    removed.push_back(c);
 }
 
 void Session::run(){
@@ -35,18 +39,57 @@ void Session::run(){
                     quit = true;
                     break;
                 case SDL_KEYDOWN:
-                    for(Element* e: elements){
-                        e->keyDown(event);
+                    for(Component* c : components){
+                        c->keyDown(event);
                     }
                     
                     
             }//switch
         }//inner while
+        
+        for(Component* c : components){
+            c->onFrameUpdate();
+        }
+        
+        //checkCollision
+        for(Component* c : components){
+            Component* collidedWith = c->checkCollision(components);
+            
+            if(collidedWith != NULL){
+//                c->gotHit(collidedWith);
+//                collidedWith->gotHit(c);
+                break;
+            }
+        }
+        
+        //addNewComponents
+        for(Component* e:added){
+            components.push_back(e);
+        }
+        added.clear();
+        
+        
+        //removeComponents
+        for(Component* c:removed){
+            for(vector<Component*>::iterator i = components.begin(); i!=components.end();)
+                if(*i==c){
+                    i=components.erase(i);
+                    //e->~Element();
+                    delete c;
+                }else{
+                    i++;
+                }
+        }
+        removed.clear();
+        
+        
+        
+        
         SDL_RenderClear(sys.getRenderer());
         
-        for(Element* e : elements){
-            e->onFrameUpdate();
-            e->draw();
+        for(Component* c : components){
+            
+            c->draw();
         }
         
         SDL_RenderPresent(sys.getRenderer());
@@ -55,9 +98,6 @@ void Session::run(){
         
         
     }//outer while
-    
-    
-    
 }//run()
 
 void Session::setDelay(Uint32 nextFrame){
@@ -71,7 +111,7 @@ Session::~Session(){
     
 }
 
-
+Session session;
 
 
 

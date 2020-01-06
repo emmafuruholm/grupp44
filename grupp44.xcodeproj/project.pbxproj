@@ -10,6 +10,8 @@
 		036867BE23A2627A00640267 /* Session.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036867BC23A2627A00640267 /* Session.cpp */; };
 		036867C123A26B7600640267 /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036867BF23A26B7600640267 /* Component.cpp */; };
 		036867C423A275A200640267 /* System.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036867C223A275A200640267 /* System.cpp */; };
+		22534D2E23C345390058FF03 /* Pistol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22534D2C23C345390058FF03 /* Pistol.cpp */; };
+		22534D3123C3480A0058FF03 /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22534D2F23C3480A0058FF03 /* Bullet.cpp */; };
 		2296B6F423A3B66800680517 /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2296B6F223A3B66800680517 /* Enemy.cpp */; };
 		2296B6F723A3CA2200680517 /* Enemies.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2296B6F523A3CA2200680517 /* Enemies.cpp */; };
 		2296B6FA23A3D5A700680517 /* Element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2296B6F823A3D5A700680517 /* Element.cpp */; };
@@ -49,6 +51,10 @@
 		036867C023A26B7600640267 /* Component.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Component.hpp; sourceTree = "<group>"; };
 		036867C223A275A200640267 /* System.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = System.cpp; sourceTree = "<group>"; };
 		036867C323A275A200640267 /* System.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = System.hpp; sourceTree = "<group>"; };
+		22534D2C23C345390058FF03 /* Pistol.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Pistol.cpp; sourceTree = "<group>"; };
+		22534D2D23C345390058FF03 /* Pistol.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Pistol.hpp; sourceTree = "<group>"; };
+		22534D2F23C3480A0058FF03 /* Bullet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bullet.cpp; sourceTree = "<group>"; };
+		22534D3023C3480A0058FF03 /* Bullet.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Bullet.hpp; sourceTree = "<group>"; };
 		2296B6F223A3B66800680517 /* Enemy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Enemy.cpp; sourceTree = "<group>"; };
 		2296B6F323A3B66800680517 /* Enemy.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Enemy.hpp; sourceTree = "<group>"; };
 		2296B6F523A3CA2200680517 /* Enemies.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Enemies.cpp; sourceTree = "<group>"; };
@@ -79,11 +85,13 @@
 			children = (
 				036867BD23A2627A00640267 /* Session.hpp */,
 				036867C023A26B7600640267 /* Component.hpp */,
+				22534D2D23C345390058FF03 /* Pistol.hpp */,
 				036867C323A275A200640267 /* System.hpp */,
 				C56005A023A285960058847E /* Player.hpp */,
 				2296B6F323A3B66800680517 /* Enemy.hpp */,
 				2296B6F623A3CA2200680517 /* Enemies.hpp */,
 				2296B6F923A3D5A700680517 /* Element.hpp */,
+				22534D3023C3480A0058FF03 /* Bullet.hpp */,
 			);
 			path = "Header files";
 			sourceTree = "<group>";
@@ -117,12 +125,14 @@
 		C5AF4F93239FA88A00FB1C42 /* Game engine */ = {
 			isa = PBXGroup;
 			children = (
+				22534D2F23C3480A0058FF03 /* Bullet.cpp */,
 				2296B6F223A3B66800680517 /* Enemy.cpp */,
 				2296B6F823A3D5A700680517 /* Element.cpp */,
 				2296B6F523A3CA2200680517 /* Enemies.cpp */,
 				036867BC23A2627A00640267 /* Session.cpp */,
 				036867C223A275A200640267 /* System.cpp */,
 				C560059F23A285950058847E /* Player.cpp */,
+				22534D2C23C345390058FF03 /* Pistol.cpp */,
 				C5AF4F94239FA88A00FB1C42 /* main.cpp */,
 				036867BF23A26B7600640267 /* Component.cpp */,
 			);
@@ -187,10 +197,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22534D2E23C345390058FF03 /* Pistol.cpp in Sources */,
 				036867C423A275A200640267 /* System.cpp in Sources */,
 				036867BE23A2627A00640267 /* Session.cpp in Sources */,
 				2296B6F723A3CA2200680517 /* Enemies.cpp in Sources */,
 				2296B6F423A3B66800680517 /* Enemy.cpp in Sources */,
+				22534D3123C3480A0058FF03 /* Bullet.cpp in Sources */,
 				036867C123A26B7600640267 /* Component.cpp in Sources */,
 				C5AF4F95239FA88A00FB1C42 /* main.cpp in Sources */,
 				2296B6FA23A3D5A700680517 /* Element.cpp in Sources */,

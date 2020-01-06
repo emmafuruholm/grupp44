@@ -24,6 +24,8 @@ Component::Component(int x, int y, SDL_Surface* surf):rect{x, y, surf->w, surf->
 
 Component::Component(int x, int y, int w, int h):rect{x, y, w, h}{}
 
+
+
 Component::~Component(){
     SDL_DestroyTexture(texture);
 }

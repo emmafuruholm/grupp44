@@ -12,7 +12,7 @@
 
 #include <vector>
 #include <SDL.h>
-#include "Element.hpp"
+#include "Component.hpp"
 
 
 namespace game{
@@ -20,17 +20,19 @@ namespace game{
     class Session{
         
     public:
-        void add(Element* c);
+        void add(Component* c);
+        void remove(Component* c);
         void run();
         ~Session();
         
     private:
-        std::vector<Element*> elements;
+        std::vector<Component*> components;
+        std::vector<Component*> removed, added;
         void handleKeyDown(SDL_Event& event);
         void setDelay(Uint32 nextFrame);
     
     };
-    
+extern Session session;
     
 }
 

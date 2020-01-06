@@ -14,7 +14,7 @@
 
 
 namespace game {
-class Enemies: public Element{
+class Enemies: public Component{
     
 public:
     static Enemies* getInstance(int rows, int columns);
@@ -27,6 +27,7 @@ public:
     bool isEnemiesAtWindowStart();
     void moveEnemiesDown();
     void moveEnemiesSideways();
+    Component* checkCollision(std::vector<Component*>&);
     
 private:
     Enemies(int rows, int columns);

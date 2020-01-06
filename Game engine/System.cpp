@@ -44,10 +44,17 @@ SDL_Renderer* System::getRenderer() const {
     return renderer;
 }
 
-int System::getWindowWidht() {
+int System::getWindowWidht() const{
     int i;
     int* p = {&i};
     SDL_GetWindowSize(window,p,NULL);
+    return i;
+}
+
+int System::getWindowHeight() const{
+    int i;
+    int* p = &i;
+    SDL_GetWindowSize(window, NULL, p);
     return i;
 }
 

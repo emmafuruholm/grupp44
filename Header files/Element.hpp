@@ -10,6 +10,8 @@
 #define Element_hpp
 #include <SDL.h>
 
+#include <vector>
+
 namespace game{
     
     class Element{
@@ -19,6 +21,7 @@ namespace game{
         virtual void draw() const = 0;
         virtual void onFrameUpdate() = 0;
         virtual void keyDown(const SDL_Event& event){};
+        virtual Element* checkCollision(std::vector<Element*>&)= 0;
         
     protected:
         Element ();

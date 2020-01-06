@@ -9,6 +9,7 @@
 #ifndef Enemy_hpp
 #define Enemy_hpp
 #include "Component.hpp"
+#include <vector>
 
 namespace game {
 class Enemy : public Component{
@@ -19,6 +20,7 @@ public:
     void keyDown(const SDL_Event& event){};
     void draw() const;
     void onFrameUpdate(){};
+    Component* checkCollision(std::vector<Component*>&);
     
 private:
     Enemy(int x, int y, SDL_Surface* surf);

@@ -22,7 +22,8 @@ namespace game {
         System();
         ~System();
         SDL_Renderer* getRenderer() const;
-        int getWindowWidht();
+        int getWindowWidht() const;
+        int getWindowHeight() const;
         // TTF_Font* getFont() const;
         
         

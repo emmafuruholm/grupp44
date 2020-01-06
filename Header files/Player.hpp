@@ -10,6 +10,9 @@
 #define Player_hpp
 
 #include "Component.hpp"
+#include "Pistol.hpp"
+
+#include <vector>
 
 namespace game {
 
@@ -21,10 +24,12 @@ class Player : public Component {
         void keyDown(const SDL_Event& event);
         void draw() const;
         void onFrameUpdate();
+        Component* checkCollision(std::vector<Component*>&);
     
 
     private:
         Player(int x, int y, SDL_Surface* surf);
+        Pistol* pistol = Pistol::getInstance();
 
     };
 

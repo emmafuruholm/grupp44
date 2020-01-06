@@ -9,6 +9,8 @@
 #include "Enemy.hpp"
 #include "System.hpp"
 
+#include <vector>
+
 namespace game{
 
 Enemy::Enemy(int x, int y, SDL_Surface* surf): Component(x, y, surf){
@@ -21,6 +23,10 @@ Enemy* Enemy::getInstance(int x, int y, SDL_Surface *surf){
 
 Enemy::~Enemy() {
 
+}
+
+Component* Enemy::checkCollision(std::vector<Component*>& components){
+    return NULL;
 }
 
 void Enemy::draw() const{
