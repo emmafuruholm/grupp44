@@ -8,8 +8,10 @@
 
 #include "Enemy.hpp"
 #include "System.hpp"
+#include "Session.hpp"
 
 #include <vector>
+#include <iostream>
 
 namespace game{
 
@@ -22,7 +24,11 @@ Enemy* Enemy::getInstance(int x, int y, SDL_Surface *surf){
 }
 
 Enemy::~Enemy() {
+    std::cout<<"enemy got erased"<<std::endl;
+}
 
+void Enemy::gotShot(Component*){
+    
 }
 
 Component* Enemy::checkCollision(std::vector<Component*>& components){
@@ -31,6 +37,10 @@ Component* Enemy::checkCollision(std::vector<Component*>& components){
 
 void Enemy::draw() const{
     SDL_RenderCopy(sys.getRenderer(), getTexture(), NULL, &getRect());
+}
+
+void Enemy::shoot(){
+    pistol->shoot(rect.x + rect.w /2, rect.y + rect.h, false);
 }
 
 }

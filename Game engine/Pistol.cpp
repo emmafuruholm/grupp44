@@ -35,9 +35,9 @@ void Pistol::shoot(int x, int y, bool initialDirUpwards){
     
     int bulletSurfHeight = bulletSurf->h;
 
-    int yOffset = initialDirUpwards ? -bulletSurfHeight : bulletSurfHeight;
+    int yOffset = initialDirUpwards ? -bulletSurfHeight : 0;
     
-    Bullet* b = Bullet::getInstance(x, y+yOffset, bulletSurf, true );
+    Bullet* b = Bullet::getInstance(x, y+yOffset, bulletSurf, initialDirUpwards );
     
     
     

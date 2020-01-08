@@ -25,7 +25,7 @@ class Player : public Component {
         void draw() const;
         void onFrameUpdate();
         Component* checkCollision(std::vector<Component*>&);
-    
+    void gotShot(Component*);
 
     private:
         Player(int x, int y, SDL_Surface* surf);

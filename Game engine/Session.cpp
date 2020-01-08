@@ -10,6 +10,7 @@
 #include <SDL.h>
 #include "Element.hpp"
 #include "System.hpp"
+#include <iostream>
 
 using namespace std;
 
@@ -53,13 +54,15 @@ void Session::run(){
         
         //checkCollision
         for(Component* c : components){
-            Component* collidedWith = c->checkCollision(components);
+//            Component* collidedWith = c->checkCollision(components);
             
-            if(collidedWith != NULL){
-//                c->gotHit(collidedWith);
-//                collidedWith->gotHit(c);
-                break;
-            }
+            c->checkCollision(components);
+            
+//            if(collidedWith != NULL){
+////                c->gotHit(collidedWith);
+////                collidedWith->gotHit(c);
+//                break;
+//            }
         }
         
         //addNewComponents

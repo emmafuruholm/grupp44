@@ -29,6 +29,7 @@ namespace game{
 //        void checkCollision(Session*);
         Component* checkCollision(std::vector<Component*>&);
         void gotHit(Component* other){};
+        void gotShot(Component*);
         
         
     private:

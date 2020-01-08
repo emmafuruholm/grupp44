@@ -28,6 +28,7 @@ public:
     void moveEnemiesDown();
     void moveEnemiesSideways();
     Component* checkCollision(std::vector<Component*>&);
+    void gotShot(Component*);
     
 private:
     Enemies(int rows, int columns);
@@ -35,6 +36,7 @@ private:
     bool isMovingToRight = true;
     int frameCount = 0;
     int speed = 3; // Higher number is higher speed. 1 == 1 move per second.
+    void shoot();
     
 };
 }

@@ -12,6 +12,7 @@
 #include <SDL.h>
 
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
@@ -61,6 +62,10 @@ void Player::keyDown(const SDL_Event& event){
             
         
     }
+}
+
+void Player::gotShot(Component*){
+    std::cout<<"spelare skjuten"<<std::endl;
 }
 
 void Player::draw() const {

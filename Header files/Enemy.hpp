@@ -10,6 +10,7 @@
 #define Enemy_hpp
 #include "Component.hpp"
 #include <vector>
+#include "Pistol.hpp"
 
 namespace game {
 class Enemy : public Component{
@@ -21,9 +22,12 @@ public:
     void draw() const;
     void onFrameUpdate(){};
     Component* checkCollision(std::vector<Component*>&);
+    void gotShot(Component*);
+    void shoot();
     
 private:
     Enemy(int x, int y, SDL_Surface* surf);
+    Pistol* pistol = Pistol::getInstance();
     
 };
 }
