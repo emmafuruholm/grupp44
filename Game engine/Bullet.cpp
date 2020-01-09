@@ -35,8 +35,8 @@ void Bullet::draw() const {
     SDL_RenderCopy(sys.getRenderer(), getTexture(), NULL, &getRect());
 }
 
-void Bullet::gotShot(Component*){
-    
+bool Bullet::gotShot(Component*){
+    return false;
 }
 
 
@@ -45,9 +45,12 @@ Component* Bullet::checkCollision(vector<Component*>& components){
     
     for(Component* c : components){
         if( c != this && SDL_HasIntersection(&rect, &c->getRect())){
-            c->gotShot(this);
-            session.remove(this);
-            cout<<"träff"<<endl;
+            bool effected = c->gotShot(this);
+            if(effected){
+                session.remove(this);
+                cout<<"träff"<<endl;
+            }
+            
             return c;
         }
     }

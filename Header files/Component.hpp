@@ -26,7 +26,7 @@ namespace game{
         const SDL_Rect& getRect() const {return rect;};
         void setRectPosition(int x, int y){ rect.x = x; rect.y = y;};
         SDL_Texture* getTexture() const {return texture;};
-        virtual void gotShot(Component*) = 0;
+        virtual bool gotShot(Component*) = 0;
         
     protected:
         Component (int x, int y, SDL_Surface* surf);

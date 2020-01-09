@@ -27,8 +27,8 @@ Enemy::~Enemy() {
     std::cout<<"enemy got erased"<<std::endl;
 }
 
-void Enemy::gotShot(Component*){
-    
+bool Enemy::gotShot(Component*){
+    return true;
 }
 
 Component* Enemy::checkCollision(std::vector<Component*>& components){

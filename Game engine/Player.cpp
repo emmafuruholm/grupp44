@@ -64,8 +64,9 @@ void Player::keyDown(const SDL_Event& event){
     }
 }
 
-void Player::gotShot(Component*){
+bool Player::gotShot(Component*){
     std::cout<<"spelare skjuten"<<std::endl;
+    return true;
 }
 
 void Player::draw() const {
