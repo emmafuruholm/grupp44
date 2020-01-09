@@ -65,6 +65,7 @@ bool Enemies::gotShot(Component* c){
     for(int i = 0; i < enemies.size(); i++){
         for(int j = 0; j< enemies[i].size(); j++){
             if(SDL_HasIntersection(&enemies[i][j]->getRect(), &c->getRect())){
+                delete enemies[i][j];
                 enemies[i].erase(enemies[i].begin() + j);
                 return true;
             }
@@ -110,11 +111,12 @@ void Enemies::onFrameUpdate(){
     
 }
 
-bool Enemies::isEnemiesAtWindowEnd(){
-    for(std::vector<Enemy*> enemiesRow: enemies){
-        Enemy* lastEnemy = enemiesRow.back();
-        if(isMovingToRight && lastEnemy->getRect().x + lastEnemy->getRect().w >= sys.getWindowWidht()){
-            return true;
+bool Enemies::isEnemiesAtWindowEnd(){ for(std::vector<Enemy*> enemiesRow: enemies){
+        if(enemiesRow.size() > 0){
+            Enemy* lastEnemy = enemiesRow.back();
+            if(isMovingToRight && lastEnemy->getRect().x + lastEnemy->getRect().w >= sys.getWindowWidht()){
+                return true;
+            }
         }
     }
     return false;
@@ -124,9 +126,11 @@ bool Enemies::isEnemiesAtWindowEnd(){
 
 bool Enemies::isEnemiesAtWindowStart(){
     for(std::vector<Enemy*> enemiesRow: enemies){
-        Enemy* firstEnemy = enemiesRow.front();
-        if(! isMovingToRight && firstEnemy->getRect().x <= 0){
-            return true;
+        if(enemiesRow.size() > 0){
+            Enemy* firstEnemy = enemiesRow.front();
+            if(! isMovingToRight && firstEnemy->getRect().x <= 0){
+                return true;
+            }
         }
     }
     return false;
@@ -166,7 +170,9 @@ void Enemies::moveEnemiesDown(){
 }
 
 void Enemies::shoot(){
-    enemies[enemies.size()-1][0]->shoot();
+    int frontRow = getFronRow();
+    int randIndex = rand() % enemies[frontRow].size();
+    enemies[frontRow][randIndex]->shoot();
 }
 
 bool Enemies::willShoot(){
@@ -181,6 +187,16 @@ void Enemies::checkWin(){
     if(hasWon){
         // session.onWinning() typ
     }
+}
+
+int Enemies::getFronRow(){
+    int frontRow = 0;
+    for(int i = 0; i < enemies.size(); i++){
+        if(enemies[i].size() > 0){
+            frontRow = i;
+        }
+    }
+    return frontRow;
 }
 
 

@@ -38,6 +38,7 @@ private:
     void moveEnemiesDown();
     void moveEnemiesSideways();
     void checkWin();
+    int getFronRow();
     
 };
 }
