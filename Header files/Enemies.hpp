@@ -21,14 +21,9 @@ public:
     ~Enemies();
     void draw() const;
     void onFrameUpdate();
-    std::vector<std::vector<Enemy*>> getEnemies();
     void removeEnemy(int row, int column);
-    bool isEnemiesAtWindowEnd();
-    bool isEnemiesAtWindowStart();
-    void moveEnemiesDown();
-    void moveEnemiesSideways();
     Component* checkCollision(std::vector<Component*>&);
-    void gotShot(Component*);
+    bool gotShot(Component*);
     
 private:
     Enemies(int rows, int columns);
@@ -37,6 +32,12 @@ private:
     int frameCount = 0;
     int speed = 3; // Higher number is higher speed. 1 == 1 move per second.
     void shoot();
+    bool willShoot();
+    bool isEnemiesAtWindowEnd();
+    bool isEnemiesAtWindowStart();
+    void moveEnemiesDown();
+    void moveEnemiesSideways();
+    void checkWin();
     
 };
 }

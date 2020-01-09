@@ -22,7 +22,7 @@ public:
     void draw() const;
     void onFrameUpdate(){};
     Component* checkCollision(std::vector<Component*>&);
-    void gotShot(Component*);
+    bool gotShot(Component*);
     void shoot();
     
 private:

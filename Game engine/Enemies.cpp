@@ -17,7 +17,7 @@ namespace game{
 
 
 Enemies::Enemies(int rows, int columns){
-    SDL_Surface* s = SDL_LoadBMP("/Users/tim/Desktop/enemy1.bmp");
+    SDL_Surface* s = SDL_LoadBMP("../../../../../../../../xCode/grupp44/images/enemy.bmp");
     
     for (int row = 0; row < rows; row++) {
         std::vector<Enemy*> currentColumn;
@@ -61,66 +61,38 @@ Component* Enemies::checkCollision(std::vector<Component*>& components){
     return NULL;
 };
 
-void Enemies::gotShot(Component* c){
-    for(std::vector<Enemy*> enemiesRow: enemies){
-        
-        int count = 0;
-//        for(Enemy* e : enemiesRow){
-            
-        for(std::vector<Enemy*>::iterator i = enemiesRow.begin(); i != enemiesRow.end();)
-//            if(SDL_HasIntersection(&c->getRect(), &e->getRect())){
-            if(SDL_HasIntersection(&(*i)->getRect(), &c->getRect())){
-//                delete *i;
-//                std::cout<<"size innan borttag: "<< enemiesRow.size() <<std::endl;
-                i = enemiesRow.erase(i);
-//                std::cout<<"size efter borttag: "<< enemiesRow.size() <<std::endl;
-//                std::cout<<"i gotshot: "<<&enemies<<std::endl;
-                
-//              enemies.erase(enemies.begin() + 2);
-//                enemiesRow.erase(enemiesRow.begin() + 1);
-                break;
-                
-            }else{
-                i++;
+bool Enemies::gotShot(Component* c){
+    for(int i = 0; i < enemies.size(); i++){
+        for(int j = 0; j< enemies[i].size(); j++){
+            if(SDL_HasIntersection(&enemies[i][j]->getRect(), &c->getRect())){
+                enemies[i].erase(enemies[i].begin() + j);
+                return true;
             }
-            count++;
         }
-        
     }
-
-
-std::vector<std::vector<Enemy*>> Enemies::getEnemies(){
-    return enemies;
+    checkWin();
+    return false;
 }
+
+
+
 
 void Enemies::removeEnemy(int row, int column){
     Enemy* temp = enemies[row][column];
     enemies[row].erase(enemies[row].begin() + column);
     delete temp;
+    
 }
 
 void Enemies::draw() const{
-    
-    // std::cout<<"rader:" <<enemies.size()<<std::endl;
-    
-//    for(std::vector<Enemy*> row : enemies){
-//        std::cout<<"kolumner: "<<row.size()<<std::endl;
-//    }
-    
     for(std::vector<Enemy*> enemiesRow: enemies){
         for(Enemy* e : enemiesRow){
-            
             e->draw();
         }
     }
-    
-    std::cout<<&enemies<<std::endl;
 }
 
 void Enemies::onFrameUpdate(){
-    if(frameCount % 100 == 0){
-        shoot();
-    }
     
     if(++frameCount >= FPS / speed){
         frameCount = 0;
@@ -131,6 +103,9 @@ void Enemies::onFrameUpdate(){
             speed += 3;
         }
         moveEnemiesSideways();
+        if(willShoot()){
+            shoot();
+        }
     }
     
 }
@@ -192,6 +167,20 @@ void Enemies::moveEnemiesDown(){
 
 void Enemies::shoot(){
     enemies[enemies.size()-1][0]->shoot();
+}
+
+bool Enemies::willShoot(){
+    return rand() % (3*speed) == 0;
+}
+
+void Enemies::checkWin(){
+    bool hasWon = true;
+    for(std::vector<Enemy*> enemiesRow: enemies){
+        hasWon = enemiesRow.size() == 0;
+    }
+    if(hasWon){
+        // session.onWinning() typ
+    }
 }
 
 

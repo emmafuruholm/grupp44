@@ -31,7 +31,7 @@ Pistol::~Pistol(){
 
 void Pistol::shoot(int x, int y, bool initialDirUpwards){
     
-    SDL_Surface* bulletSurf = SDL_LoadBMP("/Users/tim/Desktop/arrow_top.bmp");
+    SDL_Surface* bulletSurf = SDL_LoadBMP("../../../../../../../../xCode/grupp44/images/bullet.bmp");
     
     int bulletSurfHeight = bulletSurf->h;
 
