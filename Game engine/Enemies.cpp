@@ -17,7 +17,7 @@ namespace game{
 
 
 Enemies::Enemies(int rows, int columns){
-    SDL_Surface* s = SDL_LoadBMP("/Users/tim/Desktop/enemy1.bmp");
+    SDL_Surface* s = SDL_LoadBMP("../../../../../../../../xCode/grupp44/images/enemy.bmp");
     
     for (int row = 0; row < rows; row++) {
         std::vector<Enemy*> currentColumn;
