@@ -111,11 +111,7 @@ void Enemies::onFrameUpdate(){
     
 }
 
-bool Enemies::isEnemiesAtWindowEnd(){
-    
-    
-    
-    for(std::vector<Enemy*> enemiesRow: enemies){
+bool Enemies::isEnemiesAtWindowEnd(){ for(std::vector<Enemy*> enemiesRow: enemies){
         if(enemiesRow.size() > 0){
             Enemy* lastEnemy = enemiesRow.back();
             if(isMovingToRight && lastEnemy->getRect().x + lastEnemy->getRect().w >= sys.getWindowWidht()){
@@ -174,16 +170,8 @@ void Enemies::moveEnemiesDown(){
 }
 
 void Enemies::shoot(){
-    
-    int frontRow = 0;
-    for(int i = 0; i < enemies.size(); i++){
-        if(enemies[i].size() > 0){
-            frontRow = i;
-        }
-    }
-    
+    int frontRow = getFronRow();
     int randIndex = rand() % enemies[frontRow].size();
-    
     enemies[frontRow][randIndex]->shoot();
 }
 
@@ -199,6 +187,16 @@ void Enemies::checkWin(){
     if(hasWon){
         // session.onWinning() typ
     }
+}
+
+int Enemies::getFronRow(){
+    int frontRow = 0;
+    for(int i = 0; i < enemies.size(); i++){
+        if(enemies[i].size() > 0){
+            frontRow = i;
+        }
+    }
+    return frontRow;
 }
 
 
